@@ -1,0 +1,136 @@
+@import 'normalize';
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300);
+
+@import url(https://cdn.jsdelivr.net/open-iconic/1.1.0/font/css/open-iconic.min.css);
+
+$color0: #4e4e4e;
+$color1: #d68787;
+$color2: #5f865f;
+$color3: #d8af5f;
+$color4: #85add4;
+$color5: #d7afaf;
+$color6: #87afaf;
+$color7: #d0d0d0;
+$color8: #626262;
+$color9: #d75f87;
+$color10: #87af87;
+$color11: #ffd787;
+$color12: #add4fb;
+$color13: #ffafaf;
+$color14: #87d7d7;
+$color15: #e4e4e4;
+
+* {box-sizing: border-box}
+
+body {
+  line-height: 1.2;
+  font-family: Open Sans, sans-serif;
+
+  font-size: 14px;
+  background: #f3f3f3;
+  color: $color0;
+}
+
+a { text-decoration: none; }
+
+header {
+  padding: 1.5rem;
+  background: white;
+  background: $color11;
+
+  .logo {
+    font-size: 2rem;
+    font-weight: 300;
+    color: $color0;
+  }
+}
+
+section.grid {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-self: center;
+
+  padding: .5rem;
+
+  .cover {
+    padding: .5rem;
+    width: 16.6667% !important;
+    flex: 0 1 auto;
+
+    img { max-width: 100% }
+
+    .title {
+      line-height: 1.5;
+    }
+    .artist { color: #999; font-size: .75rem }
+  }
+}
+
+body { margin-bottom: 40px }
+
+button {
+  background: none;
+  border: none;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+
+  display: flex;
+  height: 96px;
+
+  background: white;
+  & > div {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .controls {
+    flex: 0 0 260px;
+  }
+  .status {
+    flex: 1 0 auto;
+    padding: 0 2rem 0;
+    .wrap {
+      display: block;
+      width:100%;
+      text-align: center;
+
+      .title {
+        margin-top: -.5rem;
+        margin-bottom: .5rem;
+      }
+    }
+  }
+  .buttons {
+    flex: 0 0 260px;
+  }
+
+  button {
+    font-size: 1.3rem;
+    margin: 0 .25rem;
+    &.big {
+      font-size: 2rem;
+    }
+  }
+
+  .progressbar {
+    width: 100%;
+    background: rgb(74, 74, 74);
+    height: 5px;
+
+    .current {
+      width: 100%;
+      height: 5px;
+      background: rgb(214, 76, 74);
+      transition: all .3s;
+    }
+  }
+}

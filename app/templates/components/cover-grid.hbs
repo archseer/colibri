@@ -1,0 +1,9 @@
+<section class='grid'>
+  {{#each model as |cover|}}
+  <div {{action "playTrack" cover.track_url}} class='cover'>
+      <img src='http://2dopeboyz.com/wp-content/uploads/2015/04/taku-love-again.jpg'/>
+      <div class='title'>Love again</div>
+      <div class='artist'>Taku</div>
+    </div>
+  {{/each}}
+</section>

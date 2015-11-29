@@ -1,0 +1,26 @@
+<footer>
+  <div class='controls'>
+    <button><span class="oi" data-glyph="media-step-backward"></span></button>
+    <button {{action 'playPause'}} class='big'>
+      {{#if player.playing}}
+        <span class="oi" data-glyph="media-pause"></span>
+      {{else}}
+        <span class="oi" data-glyph="media-play"></span>
+      {{/if}}
+    </button>
+    <button><span class="oi" data-glyph="media-step-forward"></span></button>
+  </div>
+
+  <div class='status'>
+    <div class='wrap'>
+      <div class='title'>{{player.title}}</div>
+      <div class='progressbar'>
+        <div class='total'></div>
+        <div class='current' style={{progressPercentage}}></div>
+      </div>
+    </div>
+  </div>
+
+  <div class='buttons'>
+  </div>
+</footer>
