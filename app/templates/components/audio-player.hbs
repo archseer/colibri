@@ -13,7 +13,13 @@
 
   <div class='status'>
     <div class='wrap'>
-      <div class='title'>{{player.title}}</div>
+      <div class='title'>
+        {{#if player.current}}
+          {{player.current.title}} — {{player.current.artist}}
+        {{else}}
+          /
+        {{/if}}
+      </div>
       <div class='progressbar'>
         <div class='total'></div>
         <div class='current' style={{progressPercentage}}></div>

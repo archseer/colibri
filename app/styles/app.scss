@@ -21,6 +21,10 @@ $color13: #ffafaf;
 $color14: #87d7d7;
 $color15: #e4e4e4;
 
+
+$colibri: rgb(178, 193, 108);
+$colibriGray: rgb(222, 209, 201);
+
 * {box-sizing: border-box}
 
 body {
@@ -29,6 +33,7 @@ body {
 
   font-size: 14px;
   background: #f3f3f3;
+  background: $colibriGray;
   color: $color0;
 }
 
@@ -37,7 +42,7 @@ a { text-decoration: none; }
 header {
   padding: 1.5rem;
   background: white;
-  background: $color11;
+  background: $colibri;
 
   .logo {
     font-size: 2rem;
@@ -60,7 +65,38 @@ section.grid {
     width: 16.6667% !important;
     flex: 0 1 auto;
 
-    img { max-width: 100% }
+    img { max-width: 100%; vertical-align: bottom }
+
+    .img {
+      position: relative;
+
+      .overlay {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .5);
+        color: white;
+
+        transition: opacity .2s;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button {
+          font-size: 1.5rem;
+          text-align:center;
+          border: 1px solid rgba(255,255,255,1);
+          i {vertical-align: center;}
+          padding: .5rem;
+          width: 40px;
+          height: 40px;
+        }
+      }
+      &:hover .overlay { opacity: 1;}
+    }
 
     .title {
       line-height: 1.5;
@@ -104,8 +140,8 @@ footer {
       text-align: center;
 
       .title {
-        margin-top: -.5rem;
-        margin-bottom: .5rem;
+        margin-top: -.75rem;
+        margin-bottom: 1rem;
       }
     }
   }
@@ -130,6 +166,7 @@ footer {
       width: 100%;
       height: 5px;
       background: rgb(214, 76, 74);
+      background: $colibri;
       transition: all .3s;
     }
   }
