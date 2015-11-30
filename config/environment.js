@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'auxio',
+    modulePrefix: 'colibri',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

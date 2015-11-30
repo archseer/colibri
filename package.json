@@ -1,7 +1,7 @@
 {
-  "name": "auxio",
+  "name": "colibri",
   "version": "0.0.0",
-  "description": "Small description for auxio goes here",
+  "description": "Small description for colibri goes here",
   "private": true,
   "directories": {
     "doc": "doc",
