@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Service.extend(Ember.Evented, {
   playing: false,
   progress: 0,
+  position: 0,
+  duration: 0,
   current: null,
 
   setup: function() {
@@ -17,6 +19,8 @@ export default Ember.Service.extend(Ember.Evented, {
     audio.on('ended', () => { this.set('playing', false); });
     audio.on('error', (e) => { console.log(e) });
     audio.on('timeupdate', (position, duration) => {
+      this.set('position', position);
+      this.set('duration', duration);
       this.set('progress', (position / duration) * 100);
     });
     this.set('audio', audio);
@@ -29,6 +33,8 @@ export default Ember.Service.extend(Ember.Evented, {
     audio.playing = false;
     this.set('current', track);
     this.set('playing', false);
+    this.set('position', 0);
+    this.set('duration', 0);
     audio.load(track.url);
   },
 

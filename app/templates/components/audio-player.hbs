@@ -20,9 +20,13 @@
           /
         {{/if}}
       </div>
-      <div class='progressbar'>
-        <div class='total'></div>
-        <div class='current' style={{progressPercentage}}></div>
+      <div class='time'>
+        <div class='position'>{{format-timecode player.position}}</div>
+        <div class='progressbar'>
+          <div class='total'></div>
+          <div class='current' style={{progressPercentage}}></div>
+        </div>
+        <div class='duration'>{{format-timecode player.duration}}</div>
       </div>
     </div>
   </div>
