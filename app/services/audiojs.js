@@ -17,7 +17,7 @@ export default Ember.Service.extend(Ember.Evented, {
     audio.on('play',  () => { this.set('playing', true); });
     audio.on('pause', () => { this.set('playing', false); });
     audio.on('ended', () => { this.set('playing', false); });
-    audio.on('error', (e) => { console.log(e) });
+    audio.on('error', (e) => { console.log(e); });
     audio.on('timeupdate', (position, duration) => {
       this.set('position', position);
       this.set('duration', duration);
@@ -48,7 +48,10 @@ export default Ember.Service.extend(Ember.Evented, {
 
   playPause: function() {
     this.get('audio').playPause();
-    this.set('title', 'yoyoyoy');
-  }
+  },
+
+  seek: function(t) {
+    this.get('audio').seek(t);
+  },
 
 });

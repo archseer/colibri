@@ -22,7 +22,7 @@
       </div>
       <div class='time'>
         <div class='position'>{{format-timecode player.position}}</div>
-        <div class='progressbar'>
+        <div class='progressbar' onclick={{action 'seek'}}>
           <div class='total'></div>
           <div class='current' style={{progressPercentage}}></div>
         </div>
