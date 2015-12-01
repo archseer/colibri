@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  tagName: 'footer',
   title: 'Random title',
   player: Ember.inject.service('audiojs'),
 

@@ -2,6 +2,27 @@
   <a class='logo' href="">Colibri</a>
 </header>
 
-{{outlet}}
+<div class='container'>
+  <aside>
+    <div class="title">Section title</div>
+    <nav>
+      <a href="#"><span class="oi" data-glyph="globe"></span> Browse</a>
+      <a href="#"><span class="oi" data-glyph="compass"></span> Discover</a>
+      <a href="#"><span class="oi" data-glyph="audio"></span> Radio</a>
+      <a href="#"><span class="oi" data-glyph="star"></span> Toplist</a>
+      <a href="#"><span class="oi" data-glyph="list-rich"></span> Queue</a>
+      <a href="#"><span class="oi" data-glyph="clock"></span> History</a>
+    </nav>
+    <div class="title">Section title</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Link 1</a>
+      <a href="#">Link 3</a>
+    </nav>
+  </aside>
+  <main>
+    {{outlet}}
+  </main>
+</div>
 
 {{audio-player}}

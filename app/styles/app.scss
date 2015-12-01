@@ -1,9 +1,10 @@
 @import 'normalize';
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,500,600,700,300);
 
 @import url(https://cdn.jsdelivr.net/open-iconic/1.1.0/font/css/open-iconic.min.css);
 
+$color00: #212e2f;
 $color0: #4e4e4e;
 $color1: #d68787;
 $color2: #5f865f;
@@ -27,14 +28,24 @@ $colibriGray: rgb(222, 209, 201);
 
 * {box-sizing: border-box}
 
+strong {
+  font-weight: 600;
+}
+
 body {
   line-height: 1.2;
-  font-family: Open Sans, sans-serif;
+  font-family: Source Sans Pro, sans-serif;
 
-  font-size: 14px;
+  font-size: 15px;
   //background: #f3f3f3;
   //background: $colibriGray;
-  color: $color0;
+  color: $color00;
+}
+// toplevel ember wrapper
+body > .ember-view {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 a { text-decoration: none; }
@@ -42,12 +53,55 @@ a { text-decoration: none; }
 header {
   padding: 1.25rem;
   background: white;
-  background: $colibri;
+  background: #f82e59;
+  border-bottom: 1px solid rgba(0,0,0,.1);
 
   .logo {
     font-size: 1.75rem;
     font-weight: 300;
     color: $color0;
+    color: $colibri;
+    color: #fff;
+  }
+}
+
+.container {
+  display: flex;
+  flex: 1 1 auto;
+  height: 1px;
+}
+aside {
+  background: #f3f3f3;
+  border-right: 1px solid rgba(0,0,0,.1);
+  box-shadow: inset -4px 0 4px -4px rgba(0,0,0,.15);
+  width: 230px;
+  height: 100%; 
+  overflow-y: auto;
+}
+main {
+  overflow-y: auto;
+  height: 100%; 
+}
+
+aside {
+  padding: 1.5rem;
+  line-height: 1.75;
+  .title {
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #999;
+    font-size: .8rem;
+    margin-bottom: .15rem;
+  }
+
+  nav {
+    margin-bottom: 1.5rem;
+  }
+  nav a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    .oi { vertical-align: middle; margin-right: .25rem }
   }
 }
 
@@ -62,7 +116,7 @@ section.grid {
 
   .cover {
     padding: .5rem;
-    width: 16.6667% !important;
+    width: 20% !important;
     flex: 0 1 auto;
 
     img { max-width: 100%; vertical-align: bottom }
@@ -102,15 +156,14 @@ section.grid {
       }
       &:hover .overlay { opacity: 1;}
     }
-
+    text-align: center;
     .title {
+      margin-top: .2rem;
       line-height: 1.5;
     }
-    .artist { color: #999; font-size: .75rem }
+    .artist { color: #888; font-size: .875rem }
   }
 }
-
-body { margin-bottom: 40px }
 
 button {
   background: none;
@@ -118,16 +171,18 @@ button {
 }
 
 footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99999;
+  //position: fixed;
+  //left: 0;
+  //right: 0;
+  //bottom: 0;
+  //z-index: 99999;
 
   display: flex;
   height: 96px;
 
   background: white;
+  background: rgb(47, 47, 47);
+  color: #f3f3f3;
   box-shadow: 0 0 5px rgba(0,0,0,.1), 0 -1px rgba(0,0,0,.01);
   & > div {
     justify-content: center;
