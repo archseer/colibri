@@ -4,13 +4,13 @@
 
 <div class='container'>
   <aside>
-    <div class="title">Section title</div>
+    <div class="title">Main</div>
     <nav>
-      <a href="#"><span class="oi" data-glyph="globe"></span> Browse</a>
+      {{#link-to 'index'}}<span class="oi" data-glyph="globe"></span> Browse{{/link-to}}
       <a href="#"><span class="oi" data-glyph="compass"></span> Discover</a>
       <a href="#"><span class="oi" data-glyph="audio"></span> Radio</a>
       <a href="#"><span class="oi" data-glyph="star"></span> Toplist</a>
-      <a href="#"><span class="oi" data-glyph="list-rich"></span> Queue</a>
+      {{#link-to 'queue'}}<span class="oi" data-glyph="list-rich"></span> Queue{{/link-to}}
       <a href="#"><span class="oi" data-glyph="clock"></span> History</a>
     </nav>
     <div class="title">Section title</div>
