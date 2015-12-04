@@ -57,7 +57,7 @@ header {
   border-bottom: 1px solid rgba(0,0,0,.1);
 
 
-  border-bottom: 5px solid #E70A39;
+  border-bottom: 1px solid #E70A39;
   box-shadow: inset 0 -1px rgba(255, 255, 255, .15);
 
   .logo {
@@ -258,10 +258,10 @@ section.queue {
   //align-items: center;
   justify-content: center;
   padding: 2rem 10%;
-  .cover, .info { 
+  .cover, .info {
     flex-basis: 50%;
     max-width: 50%;
-  } 
+  }
   .cover img { max-width: 100%; vertical-align: bottom }
 
   .tracklist {

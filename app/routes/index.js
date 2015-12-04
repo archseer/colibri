@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function() {
+  model() {
+    return this.store.findAll('album');
     return [{
       img: 'http://2dopeboyz.com/wp-content/uploads/2015/04/taku-love-again.jpg',
       title: 'Love again',
