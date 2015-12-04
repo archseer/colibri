@@ -17,7 +17,7 @@ export default Ember.Component.extend({
 
     seek: function(e) {
       var audio = this.get('player');
-      var pos = ((e.pageX - e.target.offsetLeft)/e.target.offsetWidth) * audio.duration;
+      var pos = ((e.pageX - e.currentTarget.offsetLeft)/e.currentTarget.offsetWidth) * audio.duration;
       audio.seek(pos);
     }
   },
