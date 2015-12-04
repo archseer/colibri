@@ -280,7 +280,19 @@ section.queue {
       .title { flex: 1 }
     }
   }
-  background-image: url('/queue_out.jpg');
+  
+}
+
+main { position: relative; overflow-x: hidden }
+.background {
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-image: url('http://2dopeboyz.com/wp-content/uploads/2015/04/taku-love-again.jpg');
   background-size: cover;
-  min-height: 100%;
+  filter: blur(50px);
+  margin: -125px;
 }
