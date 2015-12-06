@@ -1,0 +1,19 @@
+<section class="album">
+  <div class='art cover'>
+    <img src="http://localhost:4000/{{model.cover}}" />
+    <div class="title">{{model.title}}</div>
+    <div class="artist">{{model.artist.name}}</div>
+  </div>
+
+  <div class='info'>
+    <ul class='tracklist'>
+      {{#each model.tracks as |track index|}}
+      <li class="track">
+        <div class="index">{{index}}</div>
+        <div class="title">{{track.title}}</div>
+        <div class="time">{{format-timecode track.duration}}</div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>
