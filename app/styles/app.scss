@@ -313,7 +313,18 @@ main { position: relative; overflow-x: hidden }
     &:hover { color: #f82e59; .title { text-decoration: underline } }
 
     .index { margin-right: 1rem; min-width: 1rem }
+    .speaker {
+      vertical-align: middle;
+      color: #000;
+      display: none;
+    }
+    &.active {
+      .num { display: none; }
+      .speaker { display: inline }
+    }
     .title { flex: 1 }
+
+    //&.active {background: #14133d; color: #fff}
   }
 }
 
