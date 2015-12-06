@@ -35,7 +35,7 @@ export default Ember.Service.extend(Ember.Evented, {
     this.set('playing', false);
     this.set('position', 0);
     this.set('duration', 0);
-    audio.load(track.url);
+    audio.load(`http://localhost:4000/${track.get('filename')}`);
   },
 
   play: function() {

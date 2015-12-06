@@ -1,0 +1,7 @@
+{{#each tracks as |track index|}}
+<li class="track" {{action 'playTrack' track}}>
+  <div class="index">{{index}}</div>
+  <div class="title">{{track.title}}</div>
+  <div class="time">{{format-timecode track.duration}}</div>
+</li>
+{{/each}}

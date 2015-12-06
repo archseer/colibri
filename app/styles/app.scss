@@ -188,6 +188,7 @@ footer {
 
   background: white;
   background: rgb(47, 47, 47);
+  background: #14133d;
   color: #f3f3f3;
   box-shadow: 0 0 5px rgba(0,0,0,.1), 0 -1px rgba(0,0,0,.01);
   & > div {
@@ -245,6 +246,7 @@ footer {
       height: 3px;
       background: rgb(214, 76, 74);
       background: $colibri;
+      background: #f82e59;
       transition: all .3s;
     }
   }
@@ -303,11 +305,14 @@ main { position: relative; overflow-x: hidden }
     align-items: center;
     padding: 1rem;
     text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
     .index, .time {
       font-size: .785rem; opacity: .5;
     }
 
-    .index { margin-right: 1rem; }
+    &:hover { color: #f82e59; .title { text-decoration: underline } }
+
+    .index { margin-right: 1rem; min-width: 1rem }
     .title { flex: 1 }
   }
 }
