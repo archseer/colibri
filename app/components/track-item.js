@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   active: function() {
     var current = this.get('player.current');
     if (!current) { return false; }
-    return this.get('track').id === current.id;
+    return this.get('track.filename') === current.filename;
   }.property('track', 'player.current'),
 
   click() {
