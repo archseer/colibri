@@ -29,10 +29,10 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self'",
       'font-src': "'self' https://fonts.gstatic.com https://cdn.jsdelivr.net",
-      'connect-src': "'self'",
+      'connect-src': "'self' http://localhost:4000",
       'img-src': "'self' *",
       'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
-      'media-src': "'self'"
+      'media-src': "'self' http://localhost:4000"
     }
   }
 

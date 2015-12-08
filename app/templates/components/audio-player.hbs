@@ -1,5 +1,5 @@
 <div class='controls'>
-  <button><span class="oi" data-glyph="media-step-backward"></span></button>
+  <button {{action 'prev'}}><span class="oi" data-glyph="media-step-backward"></span></button>
   <button {{action 'playPause'}} class='big'>
     {{#if player.playing}}
       <span class="oi" data-glyph="media-pause"></span>
@@ -7,7 +7,7 @@
       <span class="oi" data-glyph="media-play"></span>
     {{/if}}
   </button>
-  <button><span class="oi" data-glyph="media-step-forward"></span></button>
+  <button {{action 'next'}}><span class="oi" data-glyph="media-step-forward"></span></button>
 </div>
 
 <div class='status'>

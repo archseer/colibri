@@ -1,12 +1,24 @@
 import Ember from 'ember';
+import Settings from 'colibri/models/settings';
+import StorageArray from 'ember-local-storage/local/array';
+
+var Queue = StorageArray.extend({
+  storageKey: 'colibri-queue',
+});
 
 export default Ember.Service.extend(Ember.Evented, {
   playing: false,
   progress: 0,
   position: 0,
   duration: 0,
-  current: null,
-  queue: [],
+  currentIndex: 0,
+
+  current: function() {
+    return this.get('queue').objectAt(this.get('currentIndex'));
+  }.property('currentIndex'),
+
+  store: Settings.create(),
+  queue: Queue.create(),
 
   setup: function() {
     var audio = new Audio5js({
@@ -33,25 +45,41 @@ export default Ember.Service.extend(Ember.Evented, {
   },
 
   enqueueMany: function(enumerable) {
-    this.get('queue').pushObjects(enumerable.toArray());
-    console.log(this.get('queue'));
+    var queue = this.get('queue');
+    queue.clear();
+    queue.pushObjects(enumerable.toArray());
+    this.playSong();
   },
 
-  que: function() {
-    console.log('aaaaa');
-    return this.get('queue').join('....');
-  }.property('queue.[]'),
+  playSong: function(index = 0) {
+    this.set('currentIndex', index);
+    this.notifyPropertyChange('currentIndex');
+    this.load(this.get('current.filename'));
+    this.play();
+  },
 
-  load: function(track) {
-    this.enqueue('');
+  prev: function() {
+    var index = this.decrementProperty('currentIndex');
+    if (!(index < 0)) {
+      this.playSong(index);
+    }
+  },
+  next: function() {
+    var queue = this.get('queue'),
+        index = this.incrementProperty('currentIndex');
+    if (index < queue.get('length')) {
+      this.playSong(index);
+    }
+  },
+
+  load: function(filename) {
     var audio = this.get('audio');
     audio.pause();
     audio.playing = false;
-    this.set('current', track);
     this.set('playing', false);
     this.set('position', 0);
     this.set('duration', 0);
-    audio.load(`http://localhost:4000/${track.get('filename')}`);
+    audio.load(`http://localhost:4000/${filename}`);
   },
 
   play: function() {

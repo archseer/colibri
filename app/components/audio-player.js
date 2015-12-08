@@ -14,6 +14,14 @@ export default Ember.Component.extend({
       this.get('player').playPause();
     },
 
+    next: function() {
+      this.get('player').next();
+    },
+
+    prev: function() {
+      this.get('player').prev();
+    },
+
     seek: function(e) {
       var audio = this.get('player');
       var pos = ((e.pageX - e.currentTarget.offsetLeft)/e.currentTarget.offsetWidth) * audio.duration;
