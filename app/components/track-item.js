@@ -7,14 +7,12 @@ export default Ember.Component.extend({
   classNameBindings: ['active'],
 
   active: function() {
-    var current = this.get('player.current');
+    var current = this.get('player.current.filename');
     if (!current) { return false; }
-    return this.get('track.filename') === current.filename;
+    return this.get('track.filename') === current;
   }.property('track', 'player.current'),
 
   click() {
-    var audio = this.get('player');
-    audio.load(this.get('track'));
-    audio.play();
+    this.get('player').enqueueMany([this.get('track')]);
   }
 });

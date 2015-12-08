@@ -47,6 +47,14 @@ export default Ember.Service.extend(Ember.Evented, {
     window.player = audio;
   }.on('init'),
 
+  autoplay: function() {
+    var filename = this.get('current.filename');
+    if (filename) {
+      this.load(filename);
+      this.play();
+    }
+  }.observes('current'),
+
   enqueue: function(track) {
     this.get('queue').pushObject(track);
   },
@@ -61,8 +69,6 @@ export default Ember.Service.extend(Ember.Evented, {
   playSong: function(index = 0) {
     this.set('currentIndex', index);
     this.notifyPropertyChange('currentIndex');
-    this.load(this.get('current.filename'));
-    this.play();
   },
 
   prev: function() {
