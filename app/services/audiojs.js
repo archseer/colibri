@@ -44,6 +44,10 @@ export default Ember.Service.extend(Ember.Evented, {
       this.set('progress', (position / duration) * 100);
     });
     this.set('audio', audio);
+    // load any files on current pageload.
+    // TODO: Ideally move this to the play button or something, defer until
+    // necessary.
+    this.load(this.get('current.filename'));
     window.player = audio;
   }.on('init'),
 
@@ -86,6 +90,7 @@ export default Ember.Service.extend(Ember.Evented, {
   },
 
   load: function(filename) {
+    if (filename === undefined) return
     var audio = this.get('audio');
     audio.pause();
     audio.playing = false;
