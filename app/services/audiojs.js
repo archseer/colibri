@@ -29,7 +29,14 @@ export default Ember.Service.extend(Ember.Evented, {
     });
     audio.on('play',  () => { this.set('playing', true); });
     audio.on('pause', () => { this.set('playing', false); });
-    audio.on('ended', () => { this.set('playing', false); });
+    audio.on('ended', () => {
+      var current = this.get('currentIndex');
+      if (current + 1 < this.get('queue.length')) {
+        this.playSong(current + 1);
+      } else {
+        this.set('playing', false);
+      }
+    });
     audio.on('error', (e) => { console.log(e); });
     audio.on('timeupdate', (position, duration) => {
       this.set('position', position);
