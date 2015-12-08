@@ -7,13 +7,13 @@ export default Ember.Component.extend({
   classNameBindings: ['active'],
 
   active: function() {
-    var current = this.get('audiojs.current');
-    if (!current) { return false }
-    return this.get('track').id == current.id;
-  }.property('track', 'audiojs.current'),
+    var current = this.get('player.current');
+    if (!current) { return false; }
+    return this.get('track').id === current.id;
+  }.property('track', 'player.current'),
 
   click() {
-    var audio = this.get('audiojs');
+    var audio = this.get('player');
     audio.load(this.get('track'));
     audio.play();
   }

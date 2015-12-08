@@ -6,6 +6,7 @@ export default Ember.Service.extend(Ember.Evented, {
   position: 0,
   duration: 0,
   current: null,
+  queue: [],
 
   setup: function() {
     var audio = new Audio5js({
@@ -27,7 +28,22 @@ export default Ember.Service.extend(Ember.Evented, {
     window.player = audio;
   }.on('init'),
 
+  enqueue: function(track) {
+    this.get('queue').pushObject(track);
+  },
+
+  enqueueMany: function(enumerable) {
+    this.get('queue').pushObjects(enumerable.toArray());
+    console.log(this.get('queue'));
+  },
+
+  que: function() {
+    console.log('aaaaa');
+    return this.get('queue').join('....');
+  }.property('queue.[]'),
+
   load: function(track) {
+    this.enqueue('');
     var audio = this.get('audio');
     audio.pause();
     audio.playing = false;

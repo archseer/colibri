@@ -8,10 +8,11 @@ export default Ember.Component.extend({
   }.property('album.cover'),
 
   actions: {
-    playTrack: function() {
-      var audio = this.get('audiojs');
-      audio.load(this.get('album'));
-      audio.play();
+    queueAlbum: function() {
+      var audio = this.get('player');
+      var tracks = this.get('album.tracks').then(function(tracks) {
+        audio.enqueueMany(tracks);
+      });
     }
   }
 });

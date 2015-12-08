@@ -3,10 +3,9 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'footer',
   title: 'Random title',
-  player: Ember.inject.service('audiojs'),
 
   progressPercentage: Ember.computed('player.progress', function(){
-    var width = this.get('audiojs.progress');
+    var width = this.get('player.progress');
     return new Ember.Handlebars.SafeString(`width: ${width}%`);
   }),
 
