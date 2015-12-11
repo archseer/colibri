@@ -7,8 +7,8 @@ var Queue = StorageArray.extend({
 });
 
 export default Ember.Service.extend(Ember.Evented, {
+  pageload: true, // restore position
   playing: false,
-  progress: 0,
   position: 0,
   duration: 0,
   currentIndex: 0,
@@ -16,6 +16,10 @@ export default Ember.Service.extend(Ember.Evented, {
   current: function() {
     return this.get('queue').objectAt(this.get('currentIndex'));
   }.property('currentIndex'),
+
+  progress: function() {
+    return (this.get('position') / this.get('duration')) * 100;
+  }.property('position', 'duration'),
 
   store: Settings.create(),
   queue: Queue.create(),
@@ -41,7 +45,12 @@ export default Ember.Service.extend(Ember.Evented, {
     audio.on('timeupdate', (position, duration) => {
       this.set('position', position);
       this.set('duration', duration);
-      this.set('progress', (position / duration) * 100);
+    });
+    audio.on('progress', () => {
+      this.set('duration', audio.duration);
+    });
+    $(window).on('unload', () => {
+      this.set('store.position', this.get('position'));
     });
     this.set('audio', audio);
     // load any files on current pageload.
@@ -90,7 +99,7 @@ export default Ember.Service.extend(Ember.Evented, {
   },
 
   load: function(filename) {
-    if (filename === undefined) return
+    if (filename === undefined) return;
     var audio = this.get('audio');
     audio.pause();
     audio.playing = false;
@@ -98,6 +107,11 @@ export default Ember.Service.extend(Ember.Evented, {
     this.set('position', 0);
     this.set('duration', 0);
     audio.load(`http://localhost:4000/${filename}`);
+    if (this.get('pageload')) { // restore last position
+      var pos = this.get('store.position');
+      if (pos > 0) this.seek(pos);
+      this.set('pageload', false);
+    }
   },
 
   play: function() {
@@ -114,6 +128,7 @@ export default Ember.Service.extend(Ember.Evented, {
 
   seek: function(t) {
     this.get('audio').seek(t);
+    this.set('position', t);
   },
 
 });

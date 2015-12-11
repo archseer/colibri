@@ -6,6 +6,7 @@ import StorageObject from 'ember-local-storage/local/object';
 export default StorageObject.extend({
   storageKey: 'colibri-settings',
   initialContent: {
-    queue: []
+    position: 0,
+    duration: 0
   }
 });
