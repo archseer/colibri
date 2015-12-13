@@ -148,6 +148,10 @@ section.grid {
     padding: .5rem;
     width: 20% !important;
     flex: 0 1 auto;
+    & > a {
+        color: inherit;
+        &:hover { text-decoration: underline }
+    }
 
     img { max-width: 100%; vertical-align: bottom }
 
@@ -344,6 +348,12 @@ main { position: relative; overflow-x: hidden }
     .title { flex: 1 }
 
     //&.active {background: #14133d; color: #fff}
+
+    &.total {
+        border-top: 1px solid rgba(0,0,0,.1);
+        .title { font-size: .75rem; color: #999 }
+    }
+    &.total:hover { .title {text-decoration: none;} color: inherit }
   }
 }
 
