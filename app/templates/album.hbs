@@ -1,6 +1,15 @@
 <section class="album">
   <div class='art cover'>
-    <img src="http://localhost:4000/{{model.cover}}" />
+      <div class="c">
+          {{#if model.cover}}
+          <img src="http://localhost:4000/{{model.cover}}" />
+          {{else}}
+          <div class="square placeholder">
+              <div class="square__content square__content--centered">
+              </div>
+          </div>
+          {{/if}}
+      </div>
     <div class="title">{{model.title}}</div>
     <div class="artist">{{model.artist.name}}</div>
   </div>
