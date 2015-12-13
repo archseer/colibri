@@ -3,7 +3,7 @@ import Settings from 'colibri/models/settings';
 import StorageArray from 'ember-local-storage/local/array';
 
 var Queue = StorageArray.extend({
-  storageKey: 'colibri-queue',
+  storageKey: 'colibri-queue'
 });
 
 export default Ember.Service.extend(Ember.Evented, {

@@ -9,6 +9,6 @@
     </button>
   </div>
 </div>
-<div class='title'>{{album.title}}</div>
-<div class='artist'>{{album.artist.name}}</div>
 {{/link-to}}
+{{#link-to 'album' album}}<div class='title'>{{album.title}}</div>{{/link-to}}
+{{#link-to 'artist' album.artist}}<div class='artist'>{{album.artist.name}}</div>{{/link-to}}

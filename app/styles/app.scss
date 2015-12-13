@@ -1,8 +1,8 @@
 @import 'normalize';
 
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,500,600,700,300);
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,500,600,700,300|Karla:400,700,400italic,700italic');
 
-@import url(https://cdn.jsdelivr.net/open-iconic/1.1.0/font/css/open-iconic.min.css);
+@import url('https://cdn.jsdelivr.net/open-iconic/1.1.0/font/css/open-iconic.min.css');
 
 $color00: #212e2f;
 $color0: #4e4e4e;
@@ -36,6 +36,9 @@ body {
   line-height: 1.2;
   font-family: Source Sans Pro, sans-serif;
 
+  // font-family: Karla, sans-serif;
+  // letter-spacing: -0.01em;
+
   font-size: 15px;
   //background: #f3f3f3;
   //background: $colibriGray;
@@ -49,6 +52,27 @@ body > .ember-view {
 }
 
 a { text-decoration: none; }
+
+h1, h2, h3, h4 {
+    margin: 0;
+  //margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.157em;
+}
+
+h2 {font-size: 2.369em;}
+
+h3 {font-size: 1.777em;}
+
+h4 {font-size: 1.333em;}
+
+small, .font_small {font-size: 0.75em;}
 
 header {
   padding: 1rem 1.25rem;
@@ -341,4 +365,16 @@ section.album {
   .tracklist {
     .track { border-bottom: 1px solid rgba(0,0,0,.1) }
   }
+}
+
+// header
+.header {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    margin: 0 0 1rem;
+    padding: 2rem;
+    /* padding: 4rem 2rem 2.5rem; */
+    /* background-image: url('https://images.unsplash.com/photo-1445754574409-bcd715e18017?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=c83d2afc85746404fff425e523a42df3'); */
+    /* background-size: cover; */
+    /* background-position: bottom; */
+    /* color: #fff; */
 }
