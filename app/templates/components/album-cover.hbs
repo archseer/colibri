@@ -1,6 +1,6 @@
 {{#link-to 'album' album}}
 <div class='img'>
-  <img src={{cover}} alt='cover'/>
+  {{cover-art model=album}}
   <div class='overlay'>
     <button {{action "queueAlbum" bubbles=false}}>
       <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" class='icon-play'>

@@ -1,0 +1,11 @@
+<!-- <div class="c"> -->
+    {{#if model.cover}}
+        <img src="http://localhost:4000/{{model.cover}}" />
+    {{else}}
+        <div class="square placeholder">
+            <div class="square__content square__content--centered">
+            </div>
+        </div>
+    {{/if}}
+    <!-- </div> -->
+{{yield}}
