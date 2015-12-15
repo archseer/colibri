@@ -1,8 +1,10 @@
 <section class="album">
-  <div class='art cover'>
-    {{cover-art model=model}}
-    <div class="title">{{model.title}}</div>
-    <div class="artist">{{model.artist.name}}</div>
+  <div class='cover'>
+      {{cover-art model=model}}
+      <div class="description">
+          <div class="title">{{model.title}}</div>
+          <div class="artist">{{model.artist.name}}</div>
+      </div>
   </div>
 
   <div class='info'>
