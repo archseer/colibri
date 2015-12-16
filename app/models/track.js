@@ -7,5 +7,6 @@ export default DS.Model.extend({
   filename: DS.attr('string'),
 
   album: DS.belongsTo('album'),
-  artist: DS.belongsTo('artist')
+  artist: DS.belongsTo('artist'),
+  playlists: DS.hasMany('playlist')
 });
