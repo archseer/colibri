@@ -41,19 +41,14 @@ body > .ember-view {
 }
 
 header {
-  padding: 1rem 1.25rem;
-  background: white;
+  padding: .5rem 1rem;
   background: #f82e59;
   border-bottom: 1px solid rgba(0,0,0,.1);
-
-
   border-bottom: 1px solid #E70A39;
   box-shadow: inset 0 -1px rgba(255, 255, 255, .15);
 
   .logo {
     font-size: 1.75rem;
-    color: $color0;
-    color: $colibri;
     color: #fff;
     text-shadow: 0 2px rgba(0,0,0,.1);
   }
@@ -121,7 +116,7 @@ section.grid {
 // player component
 footer {
   display: flex;
-  height: 96px;
+  height: 80px;
 
   background: white;
   background: rgb(47, 47, 47);
