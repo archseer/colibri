@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   classNameBindings: ['active'],
 
   active: function() {
-    var current = this.get('player.current.filename');
+    let current = this.get('player.current.filename');
     if (!current) { return false; }
     return this.get('track.filename') === current;
   }.property('track', 'player.current'),

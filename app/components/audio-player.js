@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   title: 'Random title',
 
   progressPercentage: Ember.computed('player.progress', function(){
-    var width = this.get('player.progress');
+    let width = this.get('player.progress');
     return new Ember.Handlebars.SafeString(`width: ${width}%`);
   }),
 
@@ -23,8 +23,8 @@ export default Ember.Component.extend({
     },
 
     seek: function(e) {
-      var audio = this.get('player');
-      var pos = ((e.pageX - e.currentTarget.offsetLeft)/e.currentTarget.offsetWidth) * audio.duration;
+      let audio = this.get('player');
+      let pos = ((e.pageX - e.currentTarget.offsetLeft)/e.currentTarget.offsetWidth) * audio.duration;
       audio.seek(pos);
     }
   },

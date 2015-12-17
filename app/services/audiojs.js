@@ -2,7 +2,7 @@ import Ember from 'ember';
 import Settings from 'colibri/models/settings';
 import StorageArray from 'ember-local-storage/local/array';
 
-var Queue = StorageArray.extend({
+let Queue = StorageArray.extend({
   storageKey: 'colibri-queue'
 });
 
@@ -25,7 +25,7 @@ export default Ember.Service.extend(Ember.Evented, {
   queue: Queue.create(),
 
   setup: function() {
-    var audio = new Audio5js({
+    let audio = new Audio5js({
       swf_path: '/audio5js.swf',
       format_time: false,
       throw_errors: true,
@@ -34,7 +34,7 @@ export default Ember.Service.extend(Ember.Evented, {
     audio.on('play',  () => { this.set('playing', true); });
     audio.on('pause', () => { this.set('playing', false); });
     audio.on('ended', () => {
-      var current = this.get('currentIndex');
+      let current = this.get('currentIndex');
       if (current + 1 < this.get('queue.length')) {
         this.playSong(current + 1);
       } else {
@@ -61,7 +61,7 @@ export default Ember.Service.extend(Ember.Evented, {
   }.on('init'),
 
   autoplay: function() {
-    var filename = this.get('current.filename');
+    let filename = this.get('current.filename');
     if (filename) {
       this.load(filename);
       this.play();
@@ -73,7 +73,7 @@ export default Ember.Service.extend(Ember.Evented, {
   },
 
   enqueueMany: function(enumerable) {
-    var queue = this.get('queue');
+    let queue = this.get('queue');
     queue.clear();
     queue.pushObjects(enumerable.toArray());
     this.playSong();
@@ -85,13 +85,13 @@ export default Ember.Service.extend(Ember.Evented, {
   },
 
   prev: function() {
-    var index = this.decrementProperty('currentIndex');
+    let index = this.decrementProperty('currentIndex');
     if (!(index < 0)) {
       this.playSong(index);
     }
   },
   next: function() {
-    var queue = this.get('queue'),
+    let queue = this.get('queue'),
         index = this.incrementProperty('currentIndex');
     if (index < queue.get('length')) {
       this.playSong(index);
@@ -100,7 +100,7 @@ export default Ember.Service.extend(Ember.Evented, {
 
   load: function(filename) {
     if (filename === undefined) return;
-    var audio = this.get('audio');
+    let audio = this.get('audio');
     audio.pause();
     audio.playing = false;
     this.set('playing', false);
@@ -108,7 +108,7 @@ export default Ember.Service.extend(Ember.Evented, {
     this.set('duration', 0);
     audio.load(`http://localhost:4000/${filename}`);
     if (this.get('pageload')) { // restore last position
-      var pos = this.get('store.position');
+      let pos = this.get('store.position');
       if (pos > 0) this.seek(pos);
       this.set('pageload', false);
     }

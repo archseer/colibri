@@ -9,8 +9,8 @@ export default Ember.Component.extend({
 
   actions: {
     queueAlbum: function() {
-      var audio = this.get('player');
-      var tracks = this.get('album.tracks').then(function(tracks) {
+      let audio = this.get('player');
+      let tracks = this.get('album.tracks').then(function(tracks) {
         audio.enqueueMany(tracks);
       });
     }
