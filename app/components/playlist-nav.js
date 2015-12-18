@@ -16,6 +16,7 @@ export default Ember.Component.extend({
       let playlist = store.createRecord('playlist', {
         title: 'Rails is Omakase'
       });
+      playlist.save();
     }
   }
 });

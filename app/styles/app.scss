@@ -43,6 +43,7 @@ body > .ember-view {
 header {
   padding: .5rem 1rem;
   background: linear-gradient(160deg, #DE6797, #DEAC95);
+  background: linear-gradient(160deg, hsl(346, 74%, 64%), #DEAC95);
   border-bottom: 1px solid rgba(0,0,0,.1);
   box-shadow: inset 0 -1px rgba(255, 255, 255, .15);
 

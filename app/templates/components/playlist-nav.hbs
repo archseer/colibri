@@ -1,4 +1,4 @@
 <button {{action 'create'}}>new</button>
 {{#each playlists as |playlist|}}
-  <a href="">{{playlist.title}}</a>
+  {{#link-to 'playlist' playlist}}{{playlist.title}}{{/link-to}}
 {{/each}}
