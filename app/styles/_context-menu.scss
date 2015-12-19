@@ -1,0 +1,76 @@
+.pop-over {
+  font-size: .85rem;
+}
+.pop-over-compass {
+  position: fixed;
+}
+.pop-over-container {
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,.1);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  background: white;
+  color: inherit;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: .5rem 1rem;
+      border-bottom: 1px solid rgba(0,0,0,.1);
+      &:last-child { border-bottom: none }
+    }
+  }
+}
+
+
+.pop-over-pointer:before {
+  content: '';
+  position: absolute;
+  display: block;
+  border-style: solid;
+  border-width: 10px;
+  z-index: 1;
+}
+  .pop-over-pointer.orient-above:before {
+    border-color: #fff transparent transparent transparent;
+    bottom: -9px;
+    left: -10px;
+  }
+  .pop-over-pointer.orient-below:before {
+    border-color: transparent transparent #fff transparent;
+    top: -9px;
+    left: -10px;
+  }
+  .pop-over-pointer.orient-left:before {
+    border-color: transparent transparent transparent #fff;
+    right: -9px;
+    top: -10px;
+  }
+  .pop-over-pointer.orient-right:before {
+    border-color: transparent #fff transparent transparent;
+    left: -9px;
+    top: -10px;
+  }
+
+
+.pop-over.orient-above {
+  border-color: rgba(0,0,0,.1) transparent transparent transparent;
+  bottom: -20px;
+}
+
+.pop-over-pointer.orient-below {
+  border-color: transparent transparent rgba(0,0,0,.1) transparent;
+  top: -20px;
+}
+
+.pop-over-pointer.orient-left {
+  border-color: transparent transparent transparent rgba(0,0,0,.1);
+  right: -20px;
+}
+
+.pop-over-pointer.orient-right {
+  border-color: transparent rgba(0,0,0,.1) transparent transparent;
+  left: -20px;
+}
