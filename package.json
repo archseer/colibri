@@ -39,6 +39,7 @@
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-local-storage": "0.1.1",
-    "ember-pop-over": "0.1.30"
+    "ember-pop-over": "0.1.30",
+    "liquid-fire": "0.22.1"
   }
 }
