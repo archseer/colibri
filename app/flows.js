@@ -6,6 +6,13 @@ export function around() {
    .then(this.orientAbove.andSnapTo(this.center));
 }
 
+export function menu() {
+  return this.orientLeft.andSnapTo(this.topEdge, this.bottomEdge)
+    .then(this.orientBelow.andSnapTo(this.center, this.rightEdge, this.leftEdge))
+    .then(this.orientRight.andSnapTo(this.topEdge))
+    .then(this.orientBelow.andSnapTo(this.center));
+}
+
 export function dropdown() {
   return this.orientBelow.andSnapTo(this.center, this.rightEdge, this.leftEdge)
    .then(this.orientLeft.andSnapTo(this.topEdge, this.bottomEdge))

@@ -14,5 +14,11 @@ export default Ember.Component.extend({
 
   click() {
     this.get('player').enqueueMany([this.get('track')]);
+  },
+
+  actions: {
+    toggle: function() {
+      this.toggleProperty('managePlaylists');
+    }
   }
 });

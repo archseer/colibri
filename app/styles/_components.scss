@@ -89,12 +89,19 @@
     align-items: center;
     padding: 1rem;
     cursor: pointer;
-    .index, .time { font-size: .785rem; }
-    .num, .time {
+    .index, .time, .options { font-size: .785rem; }
+    .num, .time, .options {
       opacity: .5;
     }
 
-    &:hover { color: #f82e59; .title { text-decoration: underline } }
+    &:hover { /* color: #f82e59;*/ .title { text-decoration: underline } }
+
+    
+    .options { display: none; vertical-align: middle; margin-right: .25rem }
+    &:hover {
+      .options { display: inline }
+      time { display: none }
+    }
 
     .index { margin-right: 1rem; min-width: 1rem }
     .speaker {

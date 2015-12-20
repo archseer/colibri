@@ -2,9 +2,9 @@ import PopOver from "ember-pop-over/components/pop-over";
 
 var DropDown = PopOver.extend({
   classNames: ['drop-down'],
-  layoutName: 'components/pop-over',
+  // layoutName: 'components/pop-over',
   on: ['click'],
-  flow: 'dropdown'
+  flow: 'menu'
 });
 
 export default DropDown;

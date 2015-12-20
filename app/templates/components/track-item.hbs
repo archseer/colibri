@@ -3,4 +3,24 @@
   <span class="oi speaker" data-glyph="volume-high"></span>
 </div>
 <div class="title">{{track.title}}</div>
-<div class="time">{{format-timecode track.duration}}</div>
+<div class="time">
+  <div class="options" id={{track.id}}><span class="oi" data-glyph="ellipses"></span></div>
+  <time>{{format-timecode track.duration}}</time>
+</div>
+{{#drop-down for=track.id}}
+{{#liquid-if managePlaylists}}
+<ul>
+    <li class="back" {{action 'toggle'}}>Back</li>
+    <li class="divider"></li>
+
+    <li>Rails is Omakase</li>
+    <li>Settings</li>
+    <li>Settings</li>
+</ul>
+{{else}}
+<ul>
+    <li class="submenu" {{action 'toggle'}}>Add to playlist</li>
+    <li>Settings</li>
+</ul>
+{{/liquid-if}}
+{{/drop-down}}
