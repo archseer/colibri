@@ -1,4 +1,6 @@
 <button {{action 'create'}}>new</button>
 {{#each playlists as |playlist|}}
-  {{#link-to 'playlist' playlist}}{{playlist.title}}{{/link-to}}
+  {{#draggable-object-target action="addTrack" playlist=playlist}}
+    {{#link-to 'playlist' playlist}}{{playlist.title}}{{/link-to}}
+  {{/draggable-object-target}}
 {{/each}}

@@ -1,7 +1,9 @@
 <li class="track total">
+  <div>
     <div class="index"></div>
     <div class="title">{{tracks.length}} songs</div>
     <div class="time">{{format-timecode totalDuration}}</div>
+  </div>
 </li>
 {{#each tracks as |track index|}}
   {{track-item track=track index=index}}

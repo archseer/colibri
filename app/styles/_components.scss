@@ -85,10 +85,12 @@
   list-style: none;
   margin: 0;
   .track {
+    & > div:first-child {
     display: flex;
     align-items: center;
     padding: 1rem;
     cursor: pointer;
+    }
     .index, .time, .options { font-size: .785rem; }
     .num, .time, .options {
       opacity: .5;

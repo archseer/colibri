@@ -17,6 +17,12 @@ export default Ember.Component.extend({
         title: 'Rails is Omakase'
       });
       playlist.save();
+    },
+    addTrack: function(obj, opts) {
+      let playlist = opts.target.playlist;
+      let track = obj;  // might be album in the future
+      playlist.get('tracks').pushObject(track);
+      playlist.save();
     }
   }
 });

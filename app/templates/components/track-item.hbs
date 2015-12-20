@@ -1,3 +1,4 @@
+{{#draggable-object content=track}}
 <div class="index">
   <span class="num">{{index}}</span>
   <span class="oi speaker" data-glyph="volume-high"></span>
@@ -7,6 +8,8 @@
   <div class="options" id={{track.id}}><span class="oi" data-glyph="ellipses"></span></div>
   <time>{{format-timecode track.duration}}</time>
 </div>
+{{/draggable-object}}
+
 {{#drop-down for=track.id}}
 {{#liquid-if managePlaylists}}
 <ul>
