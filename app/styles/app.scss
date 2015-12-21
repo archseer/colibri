@@ -113,6 +113,9 @@ section.grid {
     width: 20% !important;
     flex: 0 1 auto;
   }
+  @media screen and (max-width: 768px) {
+    .cover { width: 33% !important }
+  }
 }
 
 // player component
@@ -231,14 +234,30 @@ section.album {
   .cover {
     flex-basis: 30%;
     max-width: 30%;
+    margin-bottom: 1rem;
   }
   .info {
+    margin-left: 2rem;
     flex-basis: 70%;
     max-width: 70%;
   }
 
   .tracklist {
     .track { border-bottom: 1px solid rgba(0,0,0,.1) }
+  }
+}
+@media screen and (max-width: 768px) {
+  section.album  {
+    flex-wrap: wrap;
+    .cover {
+      flex-basis: 100%;
+      max-width: 75%;
+    }
+    .info {
+      margin: 0;
+      flex-basis: 100%;
+      max-width: 100%;
+    }
   }
 }
 
