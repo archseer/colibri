@@ -8,8 +8,6 @@ export default Ember.Component.extend({
   isOpen: false,
 
   setupSlideOut: Ember.on('didInsertElement', function() {
-    console.log('didInsertElement');
-
     let so = new Slideout({
       panel: Ember.$('main')[0],
       menu: Ember.$('aside')[0],
@@ -19,7 +17,6 @@ export default Ember.Component.extend({
   }),
 
   teardownSlideOut: Ember.on('willDestroyElement', function() {
-    console.log('willDestroyElement');
     if (!Ember.isNone(this.get('slideout'))) {
       this.get('slideout').close();
       delete this.get('slideout');
