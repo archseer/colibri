@@ -12,11 +12,11 @@ export default Ember.Component.extend({
     return this.get('track.filename') === current;
   }.property('track', 'player.current'),
 
-  click() {
-    this.get('player').enqueueMany([this.get('track')]);
-  },
 
   actions: {
+    play: function() {
+      this.get('player').enqueueMany([this.get('track')]);
+    },
     toggle: function() {
       this.toggleProperty('managePlaylists');
     }

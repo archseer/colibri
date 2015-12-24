@@ -3,7 +3,7 @@
   <span class="num">{{index}}</span>
   <span class="oi speaker" data-glyph="volume-high"></span>
 </div>
-<div class="title">{{track.title}}</div>
+<div class="title" {{action 'play'}}>{{track.title}}</div>
 <div class="time">
   <div class="options" id={{track.id}}><span class="oi" data-glyph="ellipses"></span></div>
   <time>{{format-timecode track.duration}}</time>
