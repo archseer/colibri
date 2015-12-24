@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import KeyboardShortcuts from 'ember-keyboard-shortcuts/mixins/component';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(KeyboardShortcuts, {
   tagName: 'footer',
   title: 'Random title',
 
@@ -28,4 +29,8 @@ export default Ember.Component.extend({
       audio.seek(pos);
     }
   },
+
+  keyboardShortcuts: {
+    'space': 'playPause'
+  }
 });

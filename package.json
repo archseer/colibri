@@ -39,6 +39,7 @@
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-drag-drop": "0.2.3",
     "ember-export-application-global": "^1.0.4",
+    "ember-keyboard-shortcuts": "0.3.0",
     "ember-local-storage": "0.1.1",
     "ember-pop-over": "git+https://github.com/archSeer/ember-pop-over.git#74ede3a71d9c6d1b5adc62a126572eeabe05b746",
     "liquid-fire": "0.22.1"
