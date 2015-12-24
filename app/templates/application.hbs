@@ -1,21 +1,10 @@
 <header>
+  <button class="btn-hamburger" {{action "toggleSlideOut"}}><span class="oi" data-glyph="menu"></span></button>
   {{#link-to 'index' class='logo'}}Colibri{{/link-to}}
 </header>
 
 <div class='container'>
-  <aside>
-    <div class="title">Main</div>
-    <nav>
-      {{#link-to 'index'}}<span class="oi" data-glyph="globe"></span> Browse{{/link-to}}
-      <a href="#"><span class="oi" data-glyph="compass"></span> Discover</a>
-      <a href="#"><span class="oi" data-glyph="audio"></span> Radio</a>
-      <a href="#"><span class="oi" data-glyph="star"></span> Toplist</a>
-      {{#link-to 'queue'}}<span class="oi" data-glyph="list-rich"></span> Queue{{/link-to}}
-      <a href="#"><span class="oi" data-glyph="clock"></span> History</a>
-    </nav>
-    <div class="title">Playlists</div>
-    {{playlist-nav}}
-  </aside>
+  {{side-bar isOpen=openSlideOut}}
   <main>
     {{outlet}}
   </main>

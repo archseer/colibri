@@ -49,15 +49,18 @@ header {
   border-bottom: 1px solid rgba(0,0,0,.1);
   box-shadow: inset 0 -1px rgba(255, 255, 255, .15);
 
+  color: #fff;
+  text-shadow: 0 2px rgba(0,0,0,.1);
   .logo {
+    color: inherit;
     font-size: 1.75rem;
-    color: #fff;
-    text-shadow: 0 2px rgba(0,0,0,.1);
   }
+  & > * { vertical-align: middle }
 }
 
 .container {
-  display: flex;
+  /* display: flex; */
+  position: relative;
   flex: 1 1 auto;
   height: 1px;
 }
@@ -70,9 +73,10 @@ aside {
   overflow-y: auto;
 }
 main {
+  background: white;
   overflow-y: auto;
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
 }
 
 aside {
@@ -115,6 +119,9 @@ section.grid {
   }
   @media screen and (max-width: 768px) {
     .cover { width: 33% !important }
+  }
+  @media screen and (max-width: 480px) {
+    .cover { width: 50% !important }
   }
 }
 

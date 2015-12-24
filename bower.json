@@ -15,6 +15,7 @@
     "blob-polyfill": "~1.0.20150320",
     "audio5": "audio5js#*",
     "dom-ruler": "0.1.13",
-    "mousetrap": "~1.5.2"
+    "mousetrap": "~1.5.2",
+    "slideout.js": "~0.1.11"
   }
 }
