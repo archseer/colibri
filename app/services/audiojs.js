@@ -106,7 +106,7 @@ export default Ember.Service.extend(Ember.Evented, {
     this.set('playing', false);
     this.set('position', 0);
     this.set('duration', 0);
-    audio.load(`http://localhost:4000/${filename}`);
+    audio.load(filename);
     if (this.get('pageload')) { // restore last position
       let pos = this.get('store.position');
       if (pos > 0) this.seek(pos);
