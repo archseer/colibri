@@ -105,6 +105,15 @@ aside {
   }
 }
 
+.new-playlist {
+  font-size: .5rem;
+  float: right;
+  margin-right: 1.5rem;
+  line-height: 3;
+
+  cursor: pointer;
+}
+
 section.grid {
   max-width: 100%;
   display: flex;

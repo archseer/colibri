@@ -1,4 +1,6 @@
-<button {{action 'create'}}>new</button>
+<div class="title">Playlists
+<span {{action 'create'}} class="new-playlist oi" data-glyph="plus"></span>
+</div>
 {{#each playlists as |playlist|}}
   {{#draggable-object-target action="addTrack" playlist=playlist}}
     {{#link-to 'playlist' playlist}}{{playlist.title}}{{/link-to}}
