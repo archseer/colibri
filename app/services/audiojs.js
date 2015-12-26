@@ -28,7 +28,6 @@ export default Ember.Service.extend(Ember.Evented, {
   lstore: Settings.create(),
   store: Ember.inject.service(),
 
-
   setup: function() {
     let audio = new Audio5js({
       swf_path: '/audio5js.swf',
@@ -56,6 +55,7 @@ export default Ember.Service.extend(Ember.Evented, {
     });
     $(window).on('unload', () => {
       this.set('lstore.position', this.get('position'));
+      this.set('lstore.currentIndex', this.get('currentIndex'));
     });
     this.set('audio', audio);
 
@@ -63,12 +63,8 @@ export default Ember.Service.extend(Ember.Evented, {
         queueId = this.get('lstore.queueId');
     if (queueId) {
       this.get('store').findRecord(queueType, queueId).then((queue) => {
-        console.log(queue);
         this.set('queueObject', queue);
-        // load any files on current pageload.
-        // TODO: Ideally move this to the play button or something, defer until
-        // necessary.
-        // this.load(this.get('current.filename'));
+        this.set('currentIndex', this.get('lstore.currentIndex'));
       });
     }
     window.player = audio;

@@ -8,6 +8,7 @@ export default StorageObject.extend({
   initialContent: {
     position: 0,
     duration: 0,
+    currentIndex: 0,
     queueType: null,
     queueId: null
   }
