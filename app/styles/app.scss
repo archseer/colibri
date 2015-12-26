@@ -151,8 +151,11 @@ footer {
     align-items: center;
     display: flex;
   }
-  .controls {
+  .controls, .buttons {
     flex: 0 0 260px;
+    @media screen and (max-width: 480px) {
+      flex: 0 0 60px;
+    }
   }
   .status {
     flex: 1 0 auto;
@@ -167,9 +170,6 @@ footer {
         margin-bottom: .25rem;
       }
     }
-  }
-  .buttons {
-    flex: 0 0 260px;
   }
 
   button {
@@ -207,6 +207,10 @@ footer {
   }
 }
 
+
+@media screen and (max-width: 480px) {
+  footer .buttons { display: none }
+}
 
 // queue view
 

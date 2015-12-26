@@ -7,6 +7,8 @@ export default StorageObject.extend({
   storageKey: 'colibri-settings',
   initialContent: {
     position: 0,
-    duration: 0
+    duration: 0,
+    queueType: null,
+    queueId: null
   }
 });

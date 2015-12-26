@@ -158,6 +158,12 @@
   display: block;
 }
 
+@media screen and (max-width: 480px) {
+  .slideout-menu {
+    background: #222123;
+  } 
+}
+
 @media screen and (min-width: 480px) {
   .slideout-panel {
     margin-left: 190px;

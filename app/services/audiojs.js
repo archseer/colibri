@@ -1,10 +1,5 @@
 import Ember from 'ember';
 import Settings from 'colibri/models/settings';
-import StorageArray from 'ember-local-storage/local/array';
-
-let Queue = StorageArray.extend({
-  storageKey: 'colibri-queue'
-});
 
 export default Ember.Service.extend(Ember.Evented, {
   pageload: true, // restore position
@@ -12,17 +7,27 @@ export default Ember.Service.extend(Ember.Evented, {
   position: 0,
   duration: 0,
   currentIndex: 0,
+  queueObject: null,
 
   current: function() {
     return this.get('queue').objectAt(this.get('currentIndex'));
-  }.property('currentIndex'),
+  }.property('currentIndex', 'queue'),
+
+  queue: function() {
+    let tracks = this.get('queueObject.tracks');
+    if (tracks) {
+      return tracks;
+    }
+    return [];
+  }.property('queueObject.tracks'),
 
   progress: function() {
     return (this.get('position') / this.get('duration')) * 100;
   }.property('position', 'duration'),
 
-  store: Settings.create(),
-  queue: Queue.create(),
+  lstore: Settings.create(),
+  store: Ember.inject.service(),
+
 
   setup: function() {
     let audio = new Audio5js({
@@ -50,32 +55,45 @@ export default Ember.Service.extend(Ember.Evented, {
       this.set('duration', audio.duration);
     });
     $(window).on('unload', () => {
-      this.set('store.position', this.get('position'));
+      this.set('lstore.position', this.get('position'));
     });
     this.set('audio', audio);
-    // load any files on current pageload.
-    // TODO: Ideally move this to the play button or something, defer until
-    // necessary.
-    this.load(this.get('current.filename'));
+
+    let queueType = this.get('lstore.queueType'),
+        queueId = this.get('lstore.queueId');
+    if (queueId) {
+      this.get('store').findRecord(queueType, queueId).then((queue) => {
+        console.log(queue);
+        this.set('queueObject', queue);
+        // load any files on current pageload.
+        // TODO: Ideally move this to the play button or something, defer until
+        // necessary.
+        // this.load(this.get('current.filename'));
+      });
+    }
     window.player = audio;
   }.on('init'),
 
   autoplay: function() {
+    console.log('autoplay trigger');
     let filename = this.get('current.filename');
     if (filename) {
       this.load(filename);
-      this.play();
+      if (this.get('pageload')) { // restore last position
+        let pos = this.get('lstore.position');
+        if (pos > 0) this.seek(pos);
+        this.set('pageload', false);
+      } else {
+        this.play();
+      }
     }
   }.observes('current'),
 
-  enqueue: function(track) {
-    this.get('queue').pushObject(track);
-  },
-
-  enqueueMany: function(enumerable) {
-    let queue = this.get('queue');
-    queue.clear();
-    queue.pushObjects(enumerable.toArray());
+  // obj must respond to obj.tracks
+  enqueue: function(obj) {
+    this.set('queueObject', obj);
+    this.set('lstore.queueType', obj.constructor.modelName);
+    this.set('lstore.queueId', obj.id);
     this.playSong();
   },
 
@@ -107,11 +125,6 @@ export default Ember.Service.extend(Ember.Evented, {
     this.set('position', 0);
     this.set('duration', 0);
     audio.load(filename);
-    if (this.get('pageload')) { // restore last position
-      let pos = this.get('store.position');
-      if (pos > 0) this.seek(pos);
-      this.set('pageload', false);
-    }
   },
 
   play: function() {
