@@ -93,6 +93,13 @@ export default Ember.Service.extend(Ember.Evented, {
     this.playSong();
   },
 
+  playTrack: function(track) {
+    let i = this.get('queue').indexOf(track);
+    if (~i) {
+      this.playSong(i);
+    }
+  },
+
   playSong: function(index = 0) {
     this.set('currentIndex', index);
     this.notifyPropertyChange('currentIndex');
