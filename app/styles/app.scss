@@ -224,9 +224,13 @@ section.queue {
   //align-items: center;
   justify-content: center;
   padding: 2rem 4rem;
-  .cover, .info {
-    flex-basis: 50%;
-    max-width: 50%;
+  .cover {
+    flex-basis: 40%;
+    max-width: 40%;
+  }
+  .info {
+    flex-basis: 60%;
+    max-width: 60%;
     margin-left: 2rem;
   }
 
@@ -248,9 +252,10 @@ main { position: relative; overflow-x: hidden }
   bottom: 0px;
   left: 0px;
   background-image: url('http://2dopeboyz.com/wp-content/uploads/2015/04/taku-love-again.jpg');
+  background-image: url('https://f1.bcbits.com/img/a2410515198_10.jpg');
   background-size: cover;
-  background-position: center;
-  filter: blur(50px) saturate(2);
+  /* background-position: center; */
+  filter: blur(50px) saturate(2) brightness(.8);
   margin: -125px;
 
   &:after {
@@ -288,7 +293,7 @@ section.album {
   }
 }
 @media screen and (max-width: 768px) {
-  section.album  {
+  section.queue, section.album  {
     flex-wrap: wrap;
     .cover {
       flex-basis: 100%;
