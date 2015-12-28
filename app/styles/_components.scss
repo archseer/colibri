@@ -141,6 +141,8 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   display: none;
+
+  z-index: 2; // to be above the queue bg
 }
 
 .slideout-panel {

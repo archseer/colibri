@@ -43,6 +43,9 @@ body > .ember-view {
 }
 
 header {
+  position: relative;
+  z-index: 2; // to be above the queue bg
+
   padding: .5rem 1rem;
   background: linear-gradient(160deg, #DE6797, #DEAC95);
   background: linear-gradient(160deg, hsl(346, 74%, 64%), #DEAC95);
@@ -140,6 +143,8 @@ footer {
   display: flex;
   flex: none;
   height: 60px;
+  position: relative;
+  z-index: 2; // to be above the queue bg
 
   background: white;
   background: rgb(47, 47, 47);
@@ -222,13 +227,14 @@ section.queue {
   .cover, .info {
     flex-basis: 50%;
     max-width: 50%;
+    margin-left: 2rem;
   }
 
   .tracklist .track {
     text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
     color: #f3f3f3;
     .index, .time { color: #fff }
-    padding: .75rem 1rem;
+    /* padding: .75rem 1rem; */
   }
 
 }
@@ -236,15 +242,28 @@ section.queue {
 main { position: relative; overflow-x: hidden }
 .background {
   z-index: -1;
-  position: absolute;
+  position: fixed;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
   background-image: url('http://2dopeboyz.com/wp-content/uploads/2015/04/taku-love-again.jpg');
   background-size: cover;
-  filter: blur(50px);
+  background-position: center;
+  filter: blur(50px) saturate(2);
   margin: -125px;
+
+  &:after {
+    z-index: -1;
+    content: '';
+    display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+   background: rgba(255,255,255,0.6); 
+  }
 }
 
 // Album view
