@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('album', { path: '/albums/:album_id'});
   this.route('artist', { path: '/artists/:artist_id'});
   this.route('playlist', { path: '/playlists/:playlist_id'});
+  this.route('login');
 });
 
 export default Router;

@@ -1,13 +1,18 @@
-<header>
-  <button class="btn-hamburger" {{action "toggleSlideOut"}}><span class="oi" data-glyph="menu"></span></button>
-  {{#link-to 'index' class='logo'}}Colibri{{/link-to}}
-</header>
+{{#if session.isAuthenticated}}
+  <header>
+    <button class="btn-hamburger" {{action "toggleSlideOut"}}><span class="oi" data-glyph="menu"></span></button>
+    {{#link-to 'index' class='logo'}}Colibri{{/link-to}}
+    <button {{action 'invalidateSession'}}>Logout</button>
+  </header>
 
-<div class='container'>
-  {{side-bar isOpen=openSlideOut}}
-  <main>
-    {{outlet}}
-  </main>
-</div>
+  <div class='container'>
+    {{side-bar isOpen=openSlideOut}}
+    <main>
+      {{outlet}}
+    </main>
+  </div>
 
-{{audio-player}}
+  {{audio-player}}
+{{else}}
+  {{outlet}}
+{{/if}}
