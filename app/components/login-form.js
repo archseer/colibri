@@ -4,6 +4,8 @@ export default Ember.Component.extend({
   session: Ember.inject.service(),
   router: Ember.inject.service('-routing'),
 
+  classNames: ['login'],
+
   actions: {
     authenticate: function() {
       var credentials = this.getProperties('identification', 'password'),

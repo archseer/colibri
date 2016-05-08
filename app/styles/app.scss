@@ -267,7 +267,7 @@ main { position: relative; overflow-x: hidden }
   right: 0px;
   bottom: 0px;
   left: 0px;
-   background: rgba(255,255,255,0.6); 
+   background: rgba(255,255,255,0.6);
   }
 }
 
@@ -317,4 +317,43 @@ section.album {
   /* background-size: cover; */
   /* background-position: bottom; */
   /* color: #fff; */
+}
+
+// LOGIN
+
+.login {
+  background-color: #3b224c;
+  height: 100vh;
+
+  color: #a4a0e8;
+  text-align: center;
+
+  h1 { color : #fff }
+  padding: 3rem 0 1rem;
+
+  form {
+    width: 25%;
+    margin: 0 auto;
+
+    input {
+      width: 100%;
+      display: block;
+      background: none;
+      border: none;
+      padding: 1rem;
+      border-bottom: 1px solid;
+
+      &:focus {
+        color: #dbbfef;
+      }
+    }
+
+    text-align: right;
+
+    button {
+      margin: 1.5rem 0;
+      padding: .5rem 1rem;
+      &:hover { background: #fff; }
+    }
+  }
 }

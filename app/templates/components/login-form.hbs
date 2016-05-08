@@ -1,7 +1,7 @@
+<h1>Colibri</h1>
+<p>Login with your credentials</p>
 <form {{action 'authenticate' on='submit'}}>
-  <label for="identification">Login</label>
-  {{input id='identification' placeholder='Enter Login' value=identification}}
-  <label for="password">Password</label>
-  {{input id='password' placeholder='Enter Password' type='password' value=password}}
+  {{input id='identification' placeholder='Username' value=identification}}
+  {{input id='password' placeholder='Password' type='password' value=password}}
   <button type="submit">Login</button>
 </form>
