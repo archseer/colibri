@@ -7,7 +7,7 @@ export default Ember.Component.extend(KeyboardShortcuts, {
 
   progressPercentage: Ember.computed('player.progress', function(){
     let width = this.get('player.progress');
-    return new Ember.Handlebars.SafeString(`width: ${width}%`);
+    return new Ember.String.htmlSafe(`width: ${width}%`);
   }),
 
   actions: {
